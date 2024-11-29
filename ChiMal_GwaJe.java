@@ -38,6 +38,7 @@ public class ChiMal_GwaJe extends JFrame {
 		la1 = new JLabel("과목 이름 : ");
 		tf1 = new JTextField(5);
 		bt1 = new JButton("추가");
+		bt2 = new JButton("삭제");
 
 		ActionListener l1 = e -> {
 			if (e.getSource() == bt1)
@@ -50,12 +51,24 @@ public class ChiMal_GwaJe extends JFrame {
 				tf3.setText(a);
 			}
 		};
+		
+		ActionListener l2 = e -> {
+			if (e.getSource() == bt2)
+				
+			if (tf3.getText().isEmpty()) {
+
+			} else {
+				tf3.setText(" ");
+			}
+		};
 
 		bt1.addActionListener(l1);
+		bt2.addActionListener(l2);
 
 		p1.add(la1);
 		p1.add(tf1);
 		p1.add(bt1);
+		p1.add(bt2);
 
 		p2.add(p1);
 
