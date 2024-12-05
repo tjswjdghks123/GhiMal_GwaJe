@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class ChiMal_GwaJe extends JFrame {
 
-	JPanel p1, p2, p3, p4, p5;
+	JPanel p1, p2, p3, p4, p5, p6;
 	JLabel la1, la2, la3;
 	JTextField tf1, tf2, tf3;
 	JButton bt1, bt2, bt3;
@@ -23,19 +23,19 @@ public class ChiMal_GwaJe extends JFrame {
 	JTable table;
 
 	JScrollPane tableScroll;
-	
-	HashMap<String, Integer> map = new HashMap<>(); //해쉬 맵을 사용
+
+	HashMap<String, Integer> map = new HashMap<>(); // 해쉬 맵을 사용
 
 	ChiMal_GwaJe() {
 
-
 		setTitle("기말 과제 (학점 계산기)");
-		setSize(500, 500);
+		setSize(500, 700);
 
 		setLayout(new BorderLayout());
 
 		north();
 		Center();
+		south();
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
@@ -99,14 +99,25 @@ public class ChiMal_GwaJe extends JFrame {
 
 		tf3 = new JTextField(20);
 
+		p3.add(tf3);
+		p4.add(p3);
+		add(p4, BorderLayout.CENTER);
+
+	}
+
+	void south() {
+
+		p5 = new JPanel();
+		p6 = new JPanel(new BorderLayout());
+
 		model = new DefaultTableModel(new String[] { "과목 이름", "학점", "성적" }, 0);
 		table = new JTable(model);
 		tableScroll = new JScrollPane(table);
-		p5.add(tableScroll, BorderLayout.CENTER);
-		p3.add(tf3);
-		p4.add(p3);
-		p4.add(p5);
-		add(p4, BorderLayout.CENTER);
+
+		p5.add(tableScroll);
+		p6.add(p5);
+
+		add(p6, BorderLayout.SOUTH);
 
 	}
 
