@@ -3,6 +3,7 @@ package vaa;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,9 +16,9 @@ import javax.swing.table.DefaultTableModel;
 
 public class ChiMal_GwaJe extends JFrame {
 
-	JPanel p1, p2, p3, p4, p5, p6;
-	JLabel la1, la2, la3;
-	JTextField tf1, tf2, tf3;
+	JPanel p1, p2, p3, p4, p5, p6, ea, we;
+	JLabel la1, la2, la3, hak1, wjatn1;
+	JTextField tf1, tf2, tf3, hak2, wjatn2;
 	JButton bt1, bt2, bt3;
 	DefaultTableModel model;
 	JTable table;
@@ -48,6 +49,8 @@ public class ChiMal_GwaJe extends JFrame {
 		p2 = new JPanel(new BorderLayout());
 
 		la1 = new JLabel("과목 이름 : ");
+		hak1 = new JLabel("과목 이름 : ");
+		wjatn1 = new JLabel("과목 이름 : ");
 		la2 = new JLabel("학점 : ");
 		la3 = new JLabel(" : ");
 
@@ -56,14 +59,20 @@ public class ChiMal_GwaJe extends JFrame {
 		bt2 = new JButton("삭제");
 
 		ActionListener l1 = e -> {
+
 			if (e.getSource() == bt1)
 
 				if (tf1.getText().isEmpty()) {
 
 				} else { // 비어있지 않으면
-					String a = tf1.getText();
+					String a1 = tf1.getText();
 					tf1.setText(" "); // 버튼을 누르면 값이 초기화
-					tf3.setText(a);
+					tf3.setText(a1);
+					map.put(a1, null);
+					
+					for (Map.Entry<String, Integer> entry : map.entrySet()) {
+						System.out.println(entry.getKey());
+					}
 				}
 		};
 
@@ -79,6 +88,8 @@ public class ChiMal_GwaJe extends JFrame {
 
 		bt1.addActionListener(l1);
 		bt2.addActionListener(l2);
+
+		
 
 		p1.add(la1);
 		p1.add(tf1);
